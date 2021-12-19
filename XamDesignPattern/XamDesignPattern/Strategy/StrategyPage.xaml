@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:strategy="clr-namespace:XamDesignPattern"
+             x:Class="XamDesignPattern.StrategyPage">
+    <ContentPage.BindingContext>
+        <strategy:StrategyViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Basic Pay: "/>
+                <Entry Text="{Binding BasicPay}" Keyboard="Numeric" Placeholder="Enter Basic Pay"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Allowance: "/>
+                <Entry Text="{Binding Allowance}" Keyboard="Numeric" Placeholder="Enter Age"/>
+            </StackLayout>
+
+            <Label Text="{Binding TotalPay, StringFormat='Total Pay:  {0}'}}"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Calculate with tax" Command="{Binding WithTaxCommand}"/>
+                <Button Text="Calculate without tax" Command="{Binding WithoutTaxCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

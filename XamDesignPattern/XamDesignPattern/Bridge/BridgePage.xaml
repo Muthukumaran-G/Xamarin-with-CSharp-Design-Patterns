@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:bridge="clr-namespace:XamDesignPattern.Bridge"
+             x:Class="XamDesignPattern.BridgePage">
+    <ContentPage.BindingContext>
+        <bridge:BridgeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Email"/>
+                <Switch IsToggled="{Binding IsSMS}"/>
+                <Label Text="SMS"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Custom API"/>
+                <Switch IsToggled="{Binding IsWebAPI}"/>
+                <Label Text="Web API"/>
+            </StackLayout>
+            <Button Command="{Binding SendCommand}" Text="Send"/>
+            <Label Text="{Binding SendValue}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

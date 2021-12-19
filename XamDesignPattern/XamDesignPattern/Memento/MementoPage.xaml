@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:memento="clr-namespace:XamDesignPattern.Memento"
+             x:Class="XamDesignPattern.MementoPage">
+    <ContentPage.BindingContext>
+        <memento:MementoViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Name}" Placeholder="Enter Name"/>
+            <Entry Text="{Binding Age}" Keyboard="Numeric" Placeholder="Enter Age"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Update" Command="{Binding UpdateCommand}"/>
+                <Button Text="Revert" Command="{Binding RevertCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

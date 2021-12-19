@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:factory="clr-namespace:XamDesignPattern"
+             x:Class="XamDesignPattern.FactoryPage">
+    <ContentPage.BindingContext>
+        <factory:FactoryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Get employee details"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="AndrewBtn" Text="Andrew" Command="{Binding ButtonCommand}" CommandParameter="{Binding Source={x:Reference AndrewBtn}}"/>
+                <Button x:Name="MathewBtn" Text="Mathew" Command="{Binding ButtonCommand}" CommandParameter="{Binding Source={x:Reference MathewBtn}}"/>
+                <Button x:Name="ClerkBtn" Text="Clerk" Command="{Binding ButtonCommand}" CommandParameter="{Binding Source={x:Reference ClerkBtn}}"/>
+            </StackLayout>
+            <Label Text="{Binding Employee.Name, StringFormat='Name: {0}'}" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Employee.Age, StringFormat='Age: {0}'}" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Employee.Salary, StringFormat='Salary: {0}'}" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Employee.Level, StringFormat='Level: {0}'}" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

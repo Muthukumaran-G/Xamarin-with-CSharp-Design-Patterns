@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:decorator="clr-namespace:XamDesignPattern"
+             x:Class="XamDesignPattern.DecoratorPage">
+    <ContentPage.BindingContext>
+        <decorator:DecoratorViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Get ticket price" Command="{Binding TicketCommand}"/>
+            <Button Text="Get special ticket price" Command="{Binding SpecialTicketCommand}"/>
+            <Label Text="{Binding TicketPrice, StringFormat='Ticket Price: {0}'}}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding TicketTax, StringFormat='Ticket Tax: {0}'}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding TotalCost, StringFormat='Total price: {0}'}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
